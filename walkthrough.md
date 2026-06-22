@@ -158,7 +158,8 @@ ssh -L 8000:172.17.0.3:80 root@192.168.1.46 -p 2222 -i
 id_rsa![](./images/media/image33.png)đã port forward thành công.
 
 Dùng DIRB để scan ra các file ẩn trên web (dirb
-http://localhost:8000)![](./images/media/image6.png)
+http://localhost:8000)
+![](./images/media/image6.png)
 
 ta thấy có thư mục /ping đáng để khai thác với note LISTABLE.
 
