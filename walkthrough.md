@@ -73,8 +73,7 @@ Bruteforce thành công với tài khoản \`bob\` password \`bobby1985\`![A
 computer screen shot of a computer code AI-generated content may be
 incorrect.](./images/media/image40.png)
 
-Chạy \`ssh [[bob@192.168.1.46]{.underline}](mailto:bob@192.168.1.46) -p
-2222\` để ssh vào mail server của Bob:
+Chạy \`ssh bob@192.168.1.46 -p 2222\` để ssh vào mail server của Bob:
 ![](./images/media/image50.png)
 
 Chạy \`sudo -l\` để xem user bob có thể chạy quyền root với những lệnh
@@ -164,7 +163,8 @@ http://localhost:8000)![](./images/media/image6.png)
 ta thấy có thư mục /ping đáng để khai thác với note LISTABLE.
 
 Thử truy cập vào
-http://localhost:8000/ping/![](./images/media/image48.png)
+http://localhost:8000/ping/
+![](./images/media/image48.png)
 
 Ta truy cập tiếp
 http://localhost:8000/ping/For-Oscar.txt
