@@ -250,10 +250,13 @@ find / -type f -user 1000 2\>/dev/null
 find / -type f -user 1001 2\>/dev/null
 
 ![](./images/media/image1.png)
+
 ta tìm được info Oscar sở hữu Python3 nên
 rất có thể sẽ khai thác được gì đó bằng các python script, còn Oliver có
 1 file backup .secret khá nghi ngờ.
+
 ![](./images/media/image38.png)
+
 "my password -
 4hppfvhb9pW4E4OrbMLwPETRgVo2KyyDTqGF"
 
@@ -315,7 +318,9 @@ file.txt, get về web server![](./images/media/image30.png)
 ![](./images/media/image14.png)
 
 file.txt không có gì đáng chú
-ý![](./images/media/image18.png)
+ý
+
+![](./images/media/image18.png)
 
 Chuyển backup.zip qua máy local để phân tích dễ hơn bằng netcat:
 
