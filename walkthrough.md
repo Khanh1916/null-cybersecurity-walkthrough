@@ -249,14 +249,17 @@ find / -type f -user 1000 2\>/dev/null
 
 find / -type f -user 1001 2\>/dev/null
 
-![](./images/media/image1.png)ta tìm được info Oscar sở hữu Python3 nên
+![](./images/media/image1.png)
+ta tìm được info Oscar sở hữu Python3 nên
 rất có thể sẽ khai thác được gì đó bằng các python script, còn Oliver có
 1 file backup .secret khá nghi ngờ.
-![](./images/media/image38.png)"my password -
+![](./images/media/image38.png)
+"my password -
 4hppfvhb9pW4E4OrbMLwPETRgVo2KyyDTqGF"
 
 Oliver để mật khẩu trong file backup này, ta thử lấy mật khẩu đó ssh:
-![](./images/media/image16.png)thành công xâm nhập vào user Oliver.
+![](./images/media/image16.png)
+thành công xâm nhập vào user Oliver.
 
 Vừa rồi ta biết rằng Oscar sở hữu Python3, vậy nên có thể chạy các lệnh
 Python khai thác dưới quyền Oscar:
@@ -272,7 +275,8 @@ python3 -c \'import os; os.execl(\"/bin/sh\", \"sh\", \"-p\")\'
 -\> cho phép chạy lệnh dưới quyền Oscar, access vào home directory của
 Oscar, đọc và ghi file của Oscar.
 
-![](./images/media/image20.png)"H53QfJcXNcur9xFGND3bkPlVlMYUrPyBp76o"
+![](./images/media/image20.png)
+"H53QfJcXNcur9xFGND3bkPlVlMYUrPyBp76o"
 
 Xâm nhập vào home directory của Oscar thành công và ta thu được mật khẩu
 của user này.
